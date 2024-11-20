@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .slider-container {
+            margin: 20px 0;
+        }
+        .color-box {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>RGB cube</h1>
+    <div class="slider-container">
+        <label for="red">Red: <span id="redValue">0</span></label>
+        <input type="range" id="red" min="0" max="255" value="0" oninput="updateColor()">
+    </div>
+    <div class="slider-container">
+        <label for="green">Green: <span id="greenValue">0</span></label>
+        <input type="range" id="green" min="0" max="255" value="0" oninput="updateColor()">
+    </div>
+    <div class="slider-container">
+        <label for="blue">Blue: <span id="blueValue">0</span></label>
+        <input type="range" id="blue" min="0" max="255" value="0" oninput="updateColor()">
+    </div>
+    <div class="color-box" id="colorBox"></div>
+
+    <script>
+        function updateColor() {
+            const red = document.getElementById('red').value;
+            const green = document.getElementById('green').value;
+            const blue = document.getElementById('blue').value;
+
+            // Update the text values
+            document.getElementById('redValue').textContent = red;
+            document.getElementById('greenValue').textContent = green;
+            document.getElementById('blueValue').textContent = blue;
+
+            // Update the color of the box
+            const colorBox = document.getElementById('colorBox');
+            colorBox.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+    </script>
+</body>
+</html>
